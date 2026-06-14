@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wfr-guard"
+version = "1.0.0"
+description = "Dual-domain watermark and feature-randomization defense against data poisoning."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "WFR-Guard Authors"}
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "Pillow>=10.0",
+  "PyYAML>=6.0",
+  "scikit-learn>=1.3",
+  "torch>=2.1",
+  "torchvision>=0.16",
+  "tqdm>=4.66"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+wfr-guard = "wfr_guard.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["wfr_guard*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
